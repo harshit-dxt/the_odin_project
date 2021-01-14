@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        function computerPlay(){
+            return allowedSelection[getRandomInt(3)];
+        }
+
+        function playRound(playerSelection, computerSelection){
+            let winner = false;
+            if ( allowedSelection.includes(playerSelection)){
+                switch(playerSelection){
+                    case 'rock':
+                        if (computerSelection == 'scissors'){
+                            winner = true;
+                        }
+                        break;
+                    case 'paper':
+                        if (computerSelection == 'paper'){
+                            winner = true;
+                        }
+                        break;
+                    case 'scissors':
+                        if(computerSelection == 'paper'){
+                            winner = true;
+                        }
+                        break;
+                    default:
+                        
+                }
+            }
+            else {
+                return "You can choose one of the three weapons.\nWe are still too poor to upgrade.";
+            }
+            if (winner){
+                playerWin++;
+                return "You won. I bet it was just this one time.";
+            }
+            else if(computerSelection==playerSelection){
+                return "This draw deserves another round. Doesn't it?";
+            }
+            else{
+                cpuWin++;
+                return "Hard luck!!";
+            }
+        }
+        const allowedSelection = ['rock', 'paper', 'scissors'];
+        let playerWin = 0;
+        let cpuWin = 0;
+        function game(){
+            console.log("Let's see what luck you have!");
+            for(let i = 0; playerWin < 5 && cpuWin < 5; ++i){
+                console.log("Rock, Paper, Scissors!");
+                console.log("Rock, Paper, Scissors!");
+                const computerSelection = computerPlay();
+                console.log("I made my choice. Enter yours to see if you won!");
+                const playerSelection = window.prompt().toLowerCase();
+                const result = playRound(playerSelection, computerSelection);
+                console.log(`Computer chose ${computerSelection}!`);
+                console.log(result);
+            }
+            if(cpuWin > playerWin){
+                console.log("You can try once more to see if your luck works this time.");
+            }
+            else{
+                console.log("You seem to be a lucky person! Mind if we have another bout.");
+            }
+        }
+        game();
+    </script>
+</body>
+</html>
