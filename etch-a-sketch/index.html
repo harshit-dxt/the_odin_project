@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-Sketch</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="page">
+        <h1>ETCH-A-SKETCH!</h1>
         <div class="btn-set">
             <button class="btn" id="reset">Reset</button>
             <button class="btn" id="eraser">Eraser</button>
             <button class="btn" id="black">Black</button>
             <button class="btn" id="rainbow">Rainbow</button>
-            <label for="picker" style="color:#FFF; font-size: 20px; margin-right: 10px;;"> Color picker</label>
+            <label for="picker" style="color:#000; font-size: 20px; margin-right: 10px;;"> Color picker</label>
             <input type="color" name="box-color" id="picker" value="#000">       
         </div>
         <div class="grid-container-box">
@@ -23,6 +24,7 @@
         
         
         <div class="slidecontainer">
+            <p style="margin-bottom:10px; font-size:20px; font-family: Arial; text-shadow: 1px 1px 10px #fff">Pixel Number</p>
             <input type="range" min="1" max="100" value="16" class="slider" id="range">
         </div>
     </div>
