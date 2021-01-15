@@ -1,7 +1,7 @@
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(16, .00390625fr);
-    grid-template-rows: repeat(16, .00390625fr);
+    grid-template-columns: repeat(50, 0.02fr);
+    grid-template-rows: repeat(50, 0.02fr);
     background-color: #2196F3;
     padding: 10px;
 }
@@ -9,10 +9,10 @@
 .grid-item {
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(0, 0, 0, 1);
-    padding: 20px;
+    padding:10px;
 }
 
 
 .background-change{
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
 }

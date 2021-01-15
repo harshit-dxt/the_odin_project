@@ -1,6 +1,6 @@
 function createGrid(){
     const gridContainer = document.querySelector('.grid-container');
-    const gridSize = 16;
+    const gridSize = 50;
     for(let i = 0; i < gridSize; ++i){
         for(let j = 0; j < gridSize; ++j){
             const div = document.createElement('div');
@@ -13,23 +13,27 @@ function createGrid(){
 createGrid();
 
 const gridItemAll = document.querySelectorAll('.grid-item');
-console.log(gridItemAll);
-gridItemAll.forEach((gridItem) => {
-    console.log(gridItem);
-    gridItem.addEventListener('mouseover', (e)=>{
-        e.target.style.color = 'black';
-        e.target.classList.add('background-change');
-    })
-})
 
 function resetGrid(){
     gridItemAll.forEach((gridItem) => {
         gridItem.classList.remove('background-change');
+        gridItem.addEventListener('mouseover', (e)=>{
+            e.target.classList.add('background-change');
+        })
     })
 }
 
+function eraserActivate(){
+    gridItemAll.forEach((gridItem) => {
+        gridItem.addEventListener('mouseover', (e)=>{
+            e.target.classList.remove('background-change');
+        })
+    })
+}
+
+
+const eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', eraserActivate);
+
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', resetGrid);
-
-
-
