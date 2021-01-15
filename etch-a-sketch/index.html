@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <button id="reset">Reset</button>
-    <button id="eraser">Eraser</button>
-    <button id="black">Black</button>
-    <button id="rainbow">Rainbow</button>
-    <label for="picker"> Color picker</label>
-    <input type="color" name="box-color" id="picker" value="#000">   
-    <div class="grid-container"></div>    
-    <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <div class="page">
+        <div class="btn-set">
+            <button class="btn" id="reset">Reset</button>
+            <button class="btn" id="eraser">Eraser</button>
+            <button class="btn" id="black">Black</button>
+            <button class="btn" id="rainbow">Rainbow</button>
+            <label for="picker" style="color:#FFF; font-size: 20px; margin-right: 10px;;"> Color picker</label>
+            <input type="color" name="box-color" id="picker" value="#000">       
+        </div>
+        <div class="grid-container-box">
+            <div class="grid-container"></div>    
+        </div>
+        
+        
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="16" class="slider" id="range">
+        </div>
     </div>
     <script src="script/index.js" type="text/javascript"></script>
 </body>

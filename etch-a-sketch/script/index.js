@@ -1,9 +1,13 @@
 let rainbowIndex = 0;
 const allowedColor = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
 
+let gridSize = 16;
+
 function createGrid(){
     const gridContainer = document.querySelector('.grid-container');
-    const gridSize = 50;
+    gridContainer.innerHTML = '';
+    gridContainer.style.gridTemplateRows = `repeat(${gridSize}, ${1/gridSize}fr)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${1/gridSize}fr)`; 
     for(let i = 0; i < gridSize; ++i){
         for(let j = 0; j < gridSize; ++j){
             const div = document.createElement('div');
@@ -14,6 +18,7 @@ function createGrid(){
 }
 
 function setGridColor(color, reset){
+    gridItemAll = document.querySelectorAll('.grid-item');
     gridItemAll.forEach((gridItem) => {
         if(reset){
             gridItem.style.backgroundColor='white';
@@ -30,12 +35,13 @@ function resetGrid(){
 
 createGrid();
 
-const gridItemAll = document.querySelectorAll('.grid-item');
+let gridItemAll = document.querySelectorAll('.grid-item');
 
 resetGrid();
 
 function eraserActivate(){
     setGridColor('white', false);
+    
 }
 
 function rainbowActivate(){
@@ -55,6 +61,12 @@ function changeColor(e){
     setGridColor(e.target.value, false);
 }
 
+function changeGridSize(e){
+    gridSize = e.target.value;
+    createGrid();
+    resetGrid();
+}
+
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', eraserActivate);
 
@@ -69,3 +81,6 @@ rainbowBtn.addEventListener('click', rainbowActivate);
 
 const picker = document.querySelector('#picker');
 picker.addEventListener('change', changeColor);
+
+const range = document.querySelector('#range');
+range.addEventListener('change', changeGridSize);
