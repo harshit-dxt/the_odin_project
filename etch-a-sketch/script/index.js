@@ -10,25 +10,36 @@ function createGrid(){
     }
 }
 
-createGrid();
-
-const gridItemAll = document.querySelectorAll('.grid-item');
-
 function resetGrid(){
     gridItemAll.forEach((gridItem) => {
-        gridItem.classList.remove('background-change');
+        gridItem.style.backgroundColor = 'white';
         gridItem.addEventListener('mouseover', (e)=>{
-            e.target.classList.add('background-change');
+            e.target.style.backgroundColor = 'black';
         })
     })
 }
 
+createGrid();
+
+const gridItemAll = document.querySelectorAll('.grid-item');
+let color = 0;
+const allowedColor = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
 resetGrid();
 
 function eraserActivate(){
     gridItemAll.forEach((gridItem) => {
         gridItem.addEventListener('mouseover', (e)=>{
-            e.target.classList.remove('background-change');
+            e.target.style.backgroundColor = 'white';
+        })
+    })
+}
+
+function rainbowActivate(){
+    gridItemAll.forEach((gridItem)=>{
+        gridItem.addEventListener('mouseover', (e)=>{
+            console.log(e.target.classList);
+            e.target.style.backgroundColor = allowedColor[color];
+            color = (color+1) % 7;
         })
     })
 }
@@ -36,10 +47,11 @@ function eraserActivate(){
 function eraserDeactivate(){
     gridItemAll.forEach((gridItem) => {
         gridItem.addEventListener('mouseover', (e)=>{
-            e.target.classList.add('background-change');
+            e.target.style.backgroundColor = 'black';
         })
     })
 }
+
 
 
 const eraserBtn = document.querySelector('#eraser');
@@ -50,3 +62,6 @@ resetBtn.addEventListener('click', resetGrid);
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', eraserDeactivate);
+
+const rainbowBtn = document.querySelector('#rainbow');
+rainbowBtn.addEventListener('click', rainbowActivate);
