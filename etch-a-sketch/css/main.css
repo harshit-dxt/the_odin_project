@@ -76,13 +76,13 @@ body{
     appearance: none;
     width: 10px; /* Set a specific slider handle width */
     height: 10px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    background: #FFF; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
   
   .slider::-moz-range-thumb {
     width: 20px; /* Set a specific slider handle width */
     height: 20px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    background: palegreen; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
