@@ -23,6 +23,8 @@ function resetGrid(){
     })
 }
 
+resetGrid();
+
 function eraserActivate(){
     gridItemAll.forEach((gridItem) => {
         gridItem.addEventListener('mouseover', (e)=>{
