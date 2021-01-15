@@ -33,9 +33,20 @@ function eraserActivate(){
     })
 }
 
+function eraserDeactivate(){
+    gridItemAll.forEach((gridItem) => {
+        gridItem.addEventListener('mouseover', (e)=>{
+            e.target.classList.add('background-change');
+        })
+    })
+}
+
 
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', eraserActivate);
 
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', resetGrid);
+
+const blackBtn = document.querySelector('#black');
+blackBtn.addEventListener('click', eraserDeactivate);
