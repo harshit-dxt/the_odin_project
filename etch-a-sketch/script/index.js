@@ -13,6 +13,7 @@ function createGrid(){
 function resetGrid(){
     gridItemAll.forEach((gridItem) => {
         gridItem.style.backgroundColor = 'white';
+        
         gridItem.addEventListener('mouseover', (e)=>{
             e.target.style.backgroundColor = 'black';
         })
